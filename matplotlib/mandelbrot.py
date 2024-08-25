@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 def mandelbrot(c, max_iter):
     """
     複素数cがマンデルブロ集合に属するか判定する関数
@@ -15,9 +16,10 @@ def mandelbrot(c, max_iter):
     z = 0
     n = 0
     while abs(z) <= 2 and n < max_iter:
-        z = z**2 + c
+        z = z ** 2 + c
         n += 1
     return n
+
 
 # マンデルブロ集合を描画する範囲
 width, height = 500, 500

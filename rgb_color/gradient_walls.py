@@ -1,13 +1,13 @@
-from voxelamming import BuildBox
+from voxelamming import Voxelamming
 
 # Voxelammingアプリに表示されている部屋名を指定してください
 room_name = "1000"
-# BuildBoxクラスのインスタンスを生成します
-build_box = BuildBox(room_name)
+# Voxelammingクラスのインスタンスを生成します
+vox = Voxelamming(room_name)
 
 # ボクセルの設定
-build_box.set_box_size(1)
-build_box.set_build_interval(0.01)
+vox.set_box_size(1)
+vox.set_build_interval(0.01)
 
 # 壁のサイズ
 wall_size = 10
@@ -22,7 +22,7 @@ for i in range(wall_size):
                 r = i / (wall_size - 1)
                 g = (wall_size - 1 - j) / (wall_size - 1)
                 b = k / (wall_size - 1)
-                build_box.create_box(i, j, -k, r, g, b, 1)
+                vox.create_box(i, j, -k, r, g, b, 1)
 
 # ボクセルデータを送信
-build_box.send_data("gradient_walls")
+vox.send_data("gradient_walls")

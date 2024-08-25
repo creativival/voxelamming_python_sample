@@ -1,13 +1,13 @@
 import time
-from voxelamming import BuildBox
+from voxelamming import Voxelamming
 
 # Voxelammingアプリに表示されている部屋名を指定してください
 room_name = "1000"
-# BuildBoxクラスのインスタンスを生成します
-build_box = BuildBox(room_name)
+# Voxelammingクラスのインスタンスを生成します
+vox = Voxelamming(room_name)
 # ボクセルの設定を行います
-build_box.set_box_size(0.3)
-build_box.set_build_interval(0.01)
+vox.set_box_size(0.3)
+vox.set_build_interval(0.01)
 
 # 矢印フォント
 arrow_font = [
@@ -49,7 +49,7 @@ character_base_size = 0.3
 for i in range(cylinder_height):
     for j in range(2):
         for k in range(2):
-            build_box.create_box(j, i, k, 0.8, 0.8, 0.8)
+            vox.create_box(j, i, k, 0.8, 0.8, 0.8)
 
 # 案内表示を配置
 for i, guide_info in enumerate(guide_info_list):
@@ -57,16 +57,16 @@ for i, guide_info in enumerate(guide_info_list):
     color = guide_info["color"]
     direction = guide_info["direction"]
 
-    build_box.translate(0, i * 16, 0, 0, direction, 0)
+    vox.translate(0, i * 16, 0, 0, direction, 0)
 
     # 矢印を描画
     for y, line in enumerate(arrow_font):
         for x, bit in enumerate(line.split(',')):
             if bit == "1":
-                build_box.create_box(x + 6, y, 0, 1, 1, 0)  # 黄色で矢印を描画
+                vox.create_box(x + 6, y, 0, 1, 1, 0)  # 黄色で矢印を描画
 
     # 文字列を描画
-    build_box.write_sentence(sentence, 20, 0, 0, *color, 1)
+    vox.write_sentence(sentence, 20, 0, 0, *color, 1)
 
-    build_box.send_data(sentence)
+    vox.send_data(sentence)
     time.sleep(1)

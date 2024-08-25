@@ -1,14 +1,14 @@
-from random import random, uniform
-from math import sin, cos, pi
-from voxelamming import BuildBox
+from random import random
+from math import sin, cos
+from voxelamming import Voxelamming
 
 # Voxelammingアプリに表示されている部屋名を指定してください
 room_name = "1000"
-# BuildBoxクラスのインスタンスを生成します
-build_box = BuildBox(room_name)
+# Voxelammingクラスのインスタンスを生成します
+vox = Voxelamming(room_name)
 # ボクセルの設定を行います
-build_box.set_box_size(0.2)
-build_box.set_build_interval(0.01)
+vox.set_box_size(0.2)
+vox.set_build_interval(0.01)
 
 # 螺旋の半径
 radius = 10
@@ -37,7 +37,7 @@ while current_height < height:
     b = random()
 
     # 線を描画
-    build_box.draw_line(x1, y1, z1, x2, y2, z2, r=r, g=g, b=b, alpha=1)
+    vox.draw_line(x1, y1, z1, x2, y2, z2, r=r, g=g, b=b, alpha=1)
 
     # 始点座標を更新
     x1 = x2
@@ -49,4 +49,4 @@ while current_height < height:
     current_height += 0.5
 
 # ボクセルデータをアプリに送信します。
-build_box.send_data("spiral")
+vox.send_data("spiral")

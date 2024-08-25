@@ -1,15 +1,15 @@
 from random import random, uniform
 from random import random, uniform
 from math import sin, cos, pi
-from voxelamming import BuildBox
+from voxelamming import Voxelamming
 
 # Voxelammingアプリに表示されている部屋名を指定してください
 room_name = "1000"
-# BuildBoxクラスのインスタンスを生成します
-build_box = BuildBox(room_name)
+# Voxelammingクラスのインスタンスを生成します
+vox = Voxelamming(room_name)
 # ボクセルの設定を行います
-build_box.set_box_size(0.2)
-build_box.set_build_interval(0.01)
+vox.set_box_size(0.2)
+vox.set_build_interval(0.01)
 
 # 花火の玉の初期位置
 initial_x = 0
@@ -24,7 +24,7 @@ line_num = 3
 
 # # 花火の玉の軌跡を描画
 # for i in range(height + 1):
-#     build_box.create_box(initial_x, initial_y + i, initial_z, 1, 1, 0)
+#     vox.create_box(initial_x, initial_y + i, initial_z, 1, 1, 0)
 
 # 花火が開いたときの線の描画
 for _ in range(line_num):
@@ -43,7 +43,7 @@ for _ in range(line_num):
     b = random()
 
     # 1段目の線を描画
-    build_box.draw_line(initial_x, initial_y + height, initial_z, x1, y1, z1, r=r, g=g, b=b, alpha=1)
+    vox.draw_line(initial_x, initial_y + height, initial_z, x1, y1, z1, r=r, g=g, b=b, alpha=1)
 
     # 2段目の分岐線を描画
     for j in range(3):
@@ -58,7 +58,7 @@ for _ in range(line_num):
         z2 = z1 + uniform(-5, 5)
 
         # 線を描画
-        build_box.draw_line(x1, y1, z1, x2, y2, z2, r=r, g=g, b=b, alpha=1)
+        vox.draw_line(x1, y1, z1, x2, y2, z2, r=r, g=g, b=b, alpha=1)
 
 # ボクセルデータをアプリに送信します。
-build_box.send_data("fireworks")
+vox.send_data("fireworks")

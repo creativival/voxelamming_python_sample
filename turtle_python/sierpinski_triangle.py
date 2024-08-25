@@ -1,35 +1,37 @@
 import time
 from turtle import Turtle, setup
 
+
 def sierpinski(t, length, level):
-  """
-  シェルピンスキーの三角形を描画する関数
+    """
+    シェルピンスキーの三角形を描画する関数
 
-  Args:
-      t (Turtle): タートルオブジェクト
-      length (int): 三角形の辺の長さ
-      level (int): 再帰レベル
-  """
-  if level == 0:
-    # 三角形を描画
-    for _ in range(3):
-      t.forward(length)
-      t.left(120)
-    return
+    Args:
+        t (Turtle): タートルオブジェクト
+        length (int): 三角形の辺の長さ
+        level (int): 再帰レベル
+    """
+    if level == 0:
+        # 三角形を描画
+        for _ in range(3):
+            t.forward(length)
+            t.left(120)
+        return
 
-  # シェルピンスキーの三角形を再帰的に描画
-  length /= 2
-  sierpinski(t, length, level - 1)  # 左下の三角形
-  t.forward(length)
-  sierpinski(t, length, level - 1)  # 右下の三角形
-  t.backward(length)
-  t.left(60)
-  t.forward(length)
-  t.right(60)
-  sierpinski(t, length, level - 1)  # 上の三角形
-  t.left(60)
-  t.backward(length)
-  t.right(60)
+    # シェルピンスキーの三角形を再帰的に描画
+    length /= 2
+    sierpinski(t, length, level - 1)  # 左下の三角形
+    t.forward(length)
+    sierpinski(t, length, level - 1)  # 右下の三角形
+    t.backward(length)
+    t.left(60)
+    t.forward(length)
+    t.right(60)
+    sierpinski(t, length, level - 1)  # 上の三角形
+    t.left(60)
+    t.backward(length)
+    t.right(60)
+
 
 # タートルグラフィックスの設定
 t = Turtle()

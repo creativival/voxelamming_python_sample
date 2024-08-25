@@ -1,6 +1,5 @@
-# voxelammingパッケージからBuildBoxクラスをインポートします
-from voxelamming import BuildBox
-
+# voxelammingパッケージからVoxelammingクラスをインポートします
+from voxelamming import Voxelamming
 
 # 変数の設定
 INITIAL_LENGTH = 10
@@ -33,37 +32,37 @@ def draw_three_branches(count, branch_length):
     color = calculate_color(count)
 
     print("push_matrix")
-    build_box.push_matrix()
+    vox.push_matrix()
 
     # first branch
-    build_box.translate(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=0, roll=0)
-    build_box.draw_line(0, 0, 0, 0, length, 0, *color)
+    vox.translate(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=0, roll=0)
+    vox.draw_line(0, 0, 0, 0, length, 0, *color)
     draw_three_branches(count, length)
 
     # second branch
-    build_box.translate(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=120, roll=0)
-    build_box.draw_line(0, 0, 0, 0, length, 0, *color)
+    vox.translate(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=120, roll=0)
+    vox.draw_line(0, 0, 0, 0, length, 0, *color)
     draw_three_branches(count, length)
 
     # third branch
-    build_box.translate(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=240, roll=0)
-    build_box.draw_line(0, 0, 0, 0, length, 0, *color)
+    vox.translate(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=240, roll=0)
+    vox.draw_line(0, 0, 0, 0, length, 0, *color)
     draw_three_branches(count, length)
 
     print("pop_matrix")
-    build_box.pop_matrix()
+    vox.pop_matrix()
 
 
 # Voxelammingアプリに表示されている部屋名を指定してください
 room_name = "1000"
-# BuildBoxクラスのインスタンスを生成します
-build_box = BuildBox(room_name)
-build_box.set_box_size(0.5)
-build_box.set_build_interval(0.01)
+# Voxelammingクラスのインスタンスを生成します
+vox = Voxelamming(room_name)
+vox.set_box_size(0.5)
+vox.set_build_interval(0.01)
 
-build_box.change_shape("sphere")
-build_box.set_command("float")
-build_box.draw_line(0, 0, 0, 0, INITIAL_LENGTH, 0, *BRANCH_COLOR)
+vox.change_shape("sphere")
+vox.set_command("float")
+vox.draw_line(0, 0, 0, 0, INITIAL_LENGTH, 0, *BRANCH_COLOR)
 
 draw_three_branches(REPEAT_COUNT, INITIAL_LENGTH)
-build_box.send_data("fractal_tree")
+vox.send_data("fractal_tree")

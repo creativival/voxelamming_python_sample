@@ -1,13 +1,13 @@
 import time
-# voxelammingパッケージからBuildBoxクラスをインポートします
-from voxelamming import BuildBox
+# voxelammingパッケージからVoxelammingクラスをインポートします
+from voxelamming import Voxelamming
 
 # Voxelammingアプリに表示されている部屋名を指定してください
 room_name = "1000"
-# BuildBoxクラスのインスタンスを生成します
-build_box = BuildBox(room_name)
+# Voxelammingクラスのインスタンスを生成します
+vox = Voxelamming(room_name)
 # ボクセルの設定を行います
-build_box.set_build_interval(0.01)
+vox.set_build_interval(0.01)
 
 character_base_size = 0.3
 # 文を配置するための辞書のリスト
@@ -28,10 +28,10 @@ for sentence_dict in sentence_dict_list:
     scale = sentence_dict["scale"]
 
     # ボクセルを配置します
-    build_box.set_box_size(character_base_size * scale)
-    build_box.translate(*position, *rotation)
-    build_box.write_sentence(sentence_str, 0, 0, 0, *color)
-    
+    vox.set_box_size(character_base_size * scale)
+    vox.translate(*position, *rotation)
+    vox.write_sentence(sentence_str, 0, 0, 0, *color)
+
     # ボクセルデータをアプリに送信します。
-    build_box.send_data(sentence_str)
+    vox.send_data(sentence_str)
     time.sleep(1)

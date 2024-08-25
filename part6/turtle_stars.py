@@ -1,18 +1,18 @@
-from voxelamming import BuildBox, Turtle
+from voxelamming import Voxelamming, Turtle
 
 # Voxelammingアプリに表示されている部屋名を指定してください
 room_name = "1000"
-# BuildBoxクラスのインスタンスを生成します
-build_box = BuildBox(room_name)
+# Voxelammingクラスのインスタンスを生成します
+vox = Voxelamming(room_name)
 # ボクセルの設定を行います
-build_box.set_box_size(0.3)
-build_box.set_build_interval(0.01)
+vox.set_box_size(0.3)
+vox.set_build_interval(0.01)
 
 # 辺の長さ
 length = 60
 
 # ボクセルを配置するため、位置と色を設定します
-t = Turtle(build_box)
+t = Turtle(vox)
 
 # 星形を回転させながら描画
 for i in range(6):  # 60度ずつ回転
@@ -30,4 +30,4 @@ for i in range(6):  # 60度ずつ回転
         t.down(144)
 
 # ボクセルデータをアプリに送信します。
-build_box.send_data("turtle_stars")
+vox.send_data("turtle_stars")

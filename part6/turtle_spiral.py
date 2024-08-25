@@ -1,17 +1,17 @@
-# voxelammingパッケージからBuildBoxクラスとTurtleクラスをインポートします
-from voxelamming import BuildBox, Turtle
+# voxelammingパッケージからVoxelammingクラスとTurtleクラスをインポートします
+from voxelamming import Voxelamming, Turtle
 
 # Voxelammingアプリに表示されている部屋名を指定してください
 room_name = "1000"
-# BuildBoxクラスのインスタンスを生成します
-build_box = BuildBox(room_name)
+# Voxelammingクラスのインスタンスを生成します
+vox = Voxelamming(room_name)
 # ボクセルの設定を行います
-build_box.set_box_size(0.3)
-build_box.set_build_interval(0.001)
-build_box.set_command('liteRender')  # 描画を軽くするためのコマンド
+vox.set_box_size(0.3)
+vox.set_build_interval(0.001)
+vox.set_command('liteRender')  # 描画を軽くするためのコマンド
 
 # ボクセルを配置するため、位置と色を設定します
-t = Turtle(build_box)
+t = Turtle(vox)
 
 # 線の色のリスト
 colors = [
@@ -36,4 +36,4 @@ for i, color in enumerate(colors):
         t.left(6)
 
 # ボクセルデータをアプリに送信します。
-build_box.send_data("turtle_spiral")
+vox.send_data("turtle_spiral")

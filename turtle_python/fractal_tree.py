@@ -14,6 +14,7 @@ t.setheading(90)  # 上向きに設定
 t.goto(0, -200)  # 描画開始位置
 t.pendown()
 
+
 # フラクタルツリーを描画する関数
 def draw_fractal_tree(length, angle, thickness):
     """
@@ -24,7 +25,7 @@ def draw_fractal_tree(length, angle, thickness):
         angle (int): 枝分かれ角度
         thickness (int): 枝の太さ
     """
-    if length > 0 and thickness > 0: # 太さが0以下にならないように条件を追加
+    if length > 0 and thickness > 0:  # 太さが0以下にならないように条件を追加
         # ランダムな色を設定
         r = randint(0, 255)
         g = randint(0, 255)
@@ -39,6 +40,7 @@ def draw_fractal_tree(length, angle, thickness):
         draw_fractal_tree(length - 10, angle, thickness - 1)
         t.right(angle)
         t.backward(length)
+
 
 # フラクタルツリーを描画
 draw_fractal_tree(100, 20, 10)
