@@ -34,7 +34,7 @@ node_positions = [
 
 for x, y, z in node_positions:
     # ボクセルを配置するため、位置を設定します
-    vox.translate(x, y, z, pitch=0, yaw=0, roll=0)
+    vox.transform(x, y, z, pitch=0, yaw=0, roll=0)
     # ボクセルデータをアプリに送信します。（位置を変えて、複数回送信）
     vox.send_data()
     # 1秒待機します

@@ -1,4 +1,3 @@
-import time
 from voxelamming import Voxelamming
 
 # Voxelammingアプリに表示されている部屋名を指定してください

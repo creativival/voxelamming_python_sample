@@ -57,7 +57,7 @@ for i, guide_info in enumerate(guide_info_list):
     color = guide_info["color"]
     direction = guide_info["direction"]
 
-    vox.translate(0, i * 16, 0, 0, direction, 0)
+    vox.transform(0, i * 16, 0, 0, direction, 0)
 
     # 矢印を描画
     for y, line in enumerate(arrow_font):

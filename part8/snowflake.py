@@ -22,13 +22,13 @@ def snowflake_branch(length, level):
     vox.draw_line(0, 0, 0, 0, length, 0, 1, 1, 1)
 
     length *= 0.8
-    vox.translate(0, length, 0, 0, 0, -angle)
+    vox.transform(0, length, 0, 0, 0, -angle)
     snowflake_branch(length, level - 1)
 
-    vox.translate(0, length, 0, 0, 0, 0)
+    vox.transform(0, length, 0, 0, 0, 0)
     snowflake_branch(length, level - 1)
 
-    vox.translate(0, length, 0, 0, 0, angle)
+    vox.transform(0, length, 0, 0, 0, angle)
     snowflake_branch(length, level - 1)
 
     vox.pop_matrix()
@@ -37,9 +37,9 @@ def snowflake_branch(length, level):
 # 雪の結晶を描画
 for i in range(6):
     vox.push_matrix()
-    vox.translate(0, 0, 0, 0, 0, 60 * i)
+    vox.transform(0, 0, 0, 0, 0, 60 * i)
     snowflake_branch(branch_length, 4)
     vox.pop_matrix()
 
-vox.translate(0, branch_length * 2, 0, 0, 0, 0)
+vox.transform(0, branch_length * 2, 0, 0, 0, 0)
 vox.send_data("snowflake")

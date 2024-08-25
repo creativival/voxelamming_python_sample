@@ -15,7 +15,7 @@ vox.set_box_size(0.2)
 vox.set_build_interval(0.01)
 
 # ボクセルを配置するため、位置と色を設定します
-vox.translate(0, line_length, 0)  # 全体を上に移動
+vox.transform(0, line_length, 0)  # 全体を上に移動
 
 for _ in range(line_num):
     x = uniform(-line_length, line_length)

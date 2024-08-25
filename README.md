@@ -54,13 +54,19 @@ Voxelammingの使い方は連載記事の第1回で詳しく説明している�
 
 1. Voxelammingアプリをインストールします。
 2. Pythonをインストールします。
-3. `voxelamming` パッケージをインストールします。
+3. `voxelamming` パッケージをインストールします。バージョン0.3.0以降が必要です。
 4. VS Codeなどのエディタでサンプルコードを開き、実行します。
 
 ### 必要な環境
 
 * iPhone/iPad/Vision Pro: Voxelammingアプリの実行環境
 * Windows/Mac: Pythonの実行環境
+
+### さらに詳しく知りたいときは
+
+Voxelammingの使い方やPython以外のプログラミングについては、以下のリンクを参考にしてください。
+
+[Voxelamming公式サイト](https://creativival.github.io/voxelamming/)
 
 ### ライセンス
 

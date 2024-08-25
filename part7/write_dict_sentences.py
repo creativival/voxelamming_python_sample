@@ -29,7 +29,7 @@ for sentence_dict in sentence_dict_list:
 
     # ボクセルを配置します
     vox.set_box_size(character_base_size * scale)
-    vox.translate(*position, *rotation)
+    vox.transform(*position, *rotation)
     vox.write_sentence(sentence_str, 0, 0, 0, *color)
 
     # ボクセルデータをアプリに送信します。

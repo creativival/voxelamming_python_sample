@@ -35,17 +35,17 @@ def draw_three_branches(count, branch_length):
     vox.push_matrix()
 
     # first branch
-    vox.translate(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=0, roll=0)
+    vox.transform(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=0, roll=0)
     vox.draw_line(0, 0, 0, 0, length, 0, *color)
     draw_three_branches(count, length)
 
     # second branch
-    vox.translate(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=120, roll=0)
+    vox.transform(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=120, roll=0)
     vox.draw_line(0, 0, 0, 0, length, 0, *color)
     draw_three_branches(count, length)
 
     # third branch
-    vox.translate(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=240, roll=0)
+    vox.transform(0, branch_length, 0, pitch=ANGLE_TO_OPEN, yaw=240, roll=0)
     vox.draw_line(0, 0, 0, 0, length, 0, *color)
     draw_three_branches(count, length)
 
